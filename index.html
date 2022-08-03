@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 
-<body>
+<head>
     <title>NowShindoQuickly</title>
-</body>
-
-<style>
-    #Kyoka {
-        visibility: visible;
-    }
-</style>
+</head>
 
 <body>
     <h1 id="x"></h1>
     <h1 id="y"></h1>
     <h1 id="z"></h1>
+    <canvas id="xCanvas"></canvas>
     <button id="Kyoka" onclick="requesPermission()">加速度センサへの許可を求める</button>
     <script>
+        var canvas = document.getElementById("xCanvas");
+        var context = canvas.getContext("2d");
+        var a = 0;
+
         function requesPermission() {
             if (window.DeviceOrientationEvent) {
                 if (DeviceOrientationEvent.requestPermission) {
@@ -31,18 +30,21 @@
             }
         }
 
-        var n = 2 ;	// 小数点第n位
+        var n = 2;	// 小数点第n位
 
         //加速度
         window.addEventListener("devicemotion", function (e) {
             var acc = e.acceleration;
-            var x = Math.floor( Number(acc.x) * 100 * Math.pow( 10, n ) ) / Math.pow( 10, n ) ;
-            var y = Math.floor( Number(acc.y) * 100 * Math.pow( 10, n ) ) / Math.pow( 10, n ) ;
-            var z = Math.floor( Number(acc.z) * 100 * Math.pow( 10, n ) ) / Math.pow( 10, n ) ;
+            var x = Math.floor(Number(acc.x) * 100 * Math.pow(10, n)) / Math.pow(10, n);
+            var y = Math.floor(Number(acc.y) * 100 * Math.pow(10, n)) / Math.pow(10, n);
+            var z = Math.floor(Number(acc.z) * 100 * Math.pow(10, n)) / Math.pow(10, n);
 
             document.getElementById("x").innerText = "X : " + x + "gal";
             document.getElementById("y").innerText = "Y : " + y + "gal";
             document.getElementById("z").innerText = "Z : " + z + "gal";
+
+            context.fillRect(a, 0-x/2, 1, x);
+            a++;
         })
     </script>
 </body>
