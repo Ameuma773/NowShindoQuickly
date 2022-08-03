@@ -36,14 +36,14 @@
         function GetData() {
             //加速度
             window.addEventListener("devicemotion", function (e) {
-                var acc = e.accelerationIncludingGravity;
+                var acc = e.acceleration;
                 var x = Number(acc.x).toFixed(3);
                 var y = Number(acc.y).toFixed(3);
                 var z = Number(acc.z).toFixed(3);
 
-                document.getElementById("x").innerHTML = x;
-                document.getElementById("y").innerHTML = y;
-                document.getElementById("z").innerHTML = z;
+                document.getElementById("x").innerText = "X : "+ x + "m/s²";
+                document.getElementById("y").innerText = "Y : "+ y + "m/s²";
+                document.getElementById("z").innerText = "Z : "+ z + "m/s²";
             })
         }
     </script>
