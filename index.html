@@ -51,7 +51,7 @@
             document.getElementById("z").innerText = "Z : " + z + "gal";
 
             context.fillRect(a, 150-x/2, 1, x);
-            a+0.1;
+            a = a+0.1;
             if(a > 600){
                 ctx.clearRect(0, 0, 600, 300);
                 a = 0;
