@@ -17,7 +17,7 @@
     <h1 id="z"></h1>
     <button id="Kyoka" onclick="requesPermission()">加速度センサへの許可を求める</button>
     <script>
-        var intervalId = setInterval(GetData, 100);
+        var intervalId = setInterval(GetData, 500);
 
         function requesPermission() {
             if (window.DeviceOrientationEvent) {
