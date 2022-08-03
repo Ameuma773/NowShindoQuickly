@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <title>NowShindoQuickly</title>
+</body>
+<body>
+    <h1 id="x"></h1>
+    <h1 id="y"></h1>
+    <h1 id="z"></h1>
+    <script>
+        var intervalId = setInterval(GetData, 100);
+
+        function GetData() {
+            //加速度
+            window.addEventListener("devicemotion", function (e) {
+                var acc = e.acceleration;
+                var x = Number(acc.x).toFixed(5);
+                var y = Number(acc.x).toFixed(5);
+                var z = Number(acc.x).toFixed(5);
+
+                document.getElementById("x").innerHTML = x;
+                document.getElementById("y").innerHTML = y;
+                document.getElementById("z").innerHTML = z;
+            })
+        }
+    </script>
+</body>
+
+</html>
