@@ -7,8 +7,8 @@
 
 <style>
     #xCanvas{
-        width: 400px;
-        height: 600px;
+        width: 600px;
+        height: 300px;
     }
 </style>
 
@@ -50,9 +50,10 @@
             document.getElementById("y").innerText = "Y : " + y + "gal";
             document.getElementById("z").innerText = "Z : " + z + "gal";
 
-            context.fillRect(a, 100-x/2, 1, x);
-            a++;
-            if(a > 400){
+            context.fillRect(a, 150-x/2, 1, x);
+            a+0.1;
+            if(a > 600){
+                ctx.clearRect(0, 0, 600, 300);
                 a = 0;
             }
         })
