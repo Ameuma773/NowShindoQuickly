@@ -25,7 +25,7 @@
         canvasX.width = 1000;
         canvasX.height = 600;
         var contextX = canvasX.getContext("2d");
-        
+
         var canvasY = document.getElementById("yCanvas");
         canvasY.width = 1000;
         canvasY.height = 600;
@@ -81,7 +81,7 @@
             // 線を描画する
             contextX.stroke();
             MaeX = x;
-            
+
             y = y / 2;
             // パスをリセット
             contextY.beginPath();
@@ -112,7 +112,7 @@
             contextZ.stroke();
             MaeZ = z;
 
-            a++;
+            a = a + 0.5;
             if (a > 1000) {
                 contextX.clearRect(0, 0, 1000, 600);
                 contextY.clearRect(0, 0, 1000, 600);
