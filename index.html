@@ -20,6 +20,9 @@
     <button id="Kyoka" onclick="requesPermission()">加速度センサへの許可を求める</button>
     <script>
         var canvas = document.getElementById("xCanvas");
+        canvas.width = 1000;
+        canvas.height = 600;
+
         var context = canvas.getContext("2d");
         var a = 0;
 
@@ -52,10 +55,10 @@
 
             x = x/2;
 
-            context.fillRect(a, 100-x/2, 1, x);
+            context.fillRect(a, 300-x/2, 1, x);
             a = a+0.1;
             if(a > 600){
-                ctx.clearRect(0, 0, 600, 300);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
                 a = 0;
             }
         })
