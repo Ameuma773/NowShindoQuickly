@@ -25,7 +25,7 @@
         canvasX.width = 1000;
         canvasX.height = 600;
         var contextX = canvasX.getContext("2d");
-
+        
         var canvasY = document.getElementById("yCanvas");
         canvasY.width = 1000;
         canvasY.height = 600;
@@ -71,7 +71,7 @@
             // パスをリセット
             contextX.beginPath();
             // 線を引くスタート地点に移動
-            contextX.moveTo(a - 0.5, 300 - MaeX / 2);
+            contextX.moveTo(a - 1, 300 - MaeX / 2);
             // スタート地点から(200,200)まで線を引く
             contextX.lineTo(a, 300 - x / 2)
             // 線の色
@@ -81,12 +81,12 @@
             // 線を描画する
             contextX.stroke();
             MaeX = x;
-
+            
             y = y / 2;
             // パスをリセット
             contextY.beginPath();
             // 線を引くスタート地点に移動
-            contextY.moveTo(a - 0.5, 300 - MaeY / 2);
+            contextY.moveTo(a - 1, 300 - MaeY / 2);
             // スタート地点から(200,200)まで線を引く
             contextY.lineTo(a, 300 - y / 2)
             // 線の色
@@ -101,7 +101,7 @@
             // パスをリセット
             contextZ.beginPath();
             // 線を引くスタート地点に移動
-            contextZ.moveTo(a - 0.5, 300 - MaeZ / 2);
+            contextZ.moveTo(a - 1, 300 - MaeZ / 2);
             // スタート地点から(200,200)まで線を引く
             contextZ.lineTo(a, 300 - z / 2)
             // 線の色
@@ -112,7 +112,7 @@
             contextZ.stroke();
             MaeZ = z;
 
-            a = a + 0.5;
+            a++;
             if (a > 1000) {
                 contextX.clearRect(0, 0, 1000, 600);
                 contextY.clearRect(0, 0, 1000, 600);
