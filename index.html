@@ -37,13 +37,13 @@
             //加速度
             window.addEventListener("devicemotion", function (e) {
                 var acc = e.acceleration;
-                var x = Number(acc.x).toFixed(3);
-                var y = Number(acc.y).toFixed(3);
-                var z = Number(acc.z).toFixed(3);
+                var x = Number(acc.x).toFixed(3)*0.01;
+                var y = Number(acc.y).toFixed(3)*0.01;
+                var z = Number(acc.z).toFixed(3)*0.01;
 
-                document.getElementById("x").innerText = "X : "+ x + "m/s²";
-                document.getElementById("y").innerText = "Y : "+ y + "m/s²";
-                document.getElementById("z").innerText = "Z : "+ z + "m/s²";
+                document.getElementById("x").innerText = "X : "+ x + "gal";
+                document.getElementById("y").innerText = "Y : "+ y + "gal";
+                document.getElementById("z").innerText = "Z : "+ z + "gal";
             })
         }
     </script>
