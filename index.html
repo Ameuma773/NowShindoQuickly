@@ -6,7 +6,7 @@
 </head>
 
 <style>
-    #xCanvas{
+    #xCanvas {
         width: 1000px;
         height: 300px;
     }
@@ -41,6 +41,7 @@
         }
 
         var n = 2;	// 小数点第n位
+        var MaeX = 0;
 
         //加速度
         window.addEventListener("devicemotion", function (e) {
@@ -53,11 +54,31 @@
             document.getElementById("y").innerText = "Y : " + y + "gal";
             document.getElementById("z").innerText = "Z : " + z + "gal";
 
-            x = x/2;
+            x = x / 2;
 
-            context.fillRect(a, 300-x/2, 1, x);
+            // パスをリセット
+            context.beginPath();
+
+            // 線を引くスタート地点に移動
+            context.moveTo(a - 1, 300 - MaeX / 2);
+
+            // スタート地点から(200,200)まで線を引く
+            context.lineTo(a, 300 - x / 2)
+
+            // 線の色
+            //context.strokeStyle = "red";
+
+            // 線の太さ
+            context.lineWidth = 1;
+
+            // 線を描画する
+            context.stroke();
+
+            context.fillRect(a, 300 - x / 2, 1, x);
+
+            MaeX = x;
             a++;
-            if(a > 1000){
+            if (a > 1000) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 a = 0;
             }
