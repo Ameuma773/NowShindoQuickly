@@ -74,12 +74,12 @@
             // 線を描画する
             context.stroke();
 
-            context.fillRect(a, 300 - x / 2, 1, x);
+            //context.fillRect(a, 300 - x / 2, 1, x);
 
             MaeX = x;
             a++;
             if (a > 1000) {
-                ctx.clearRect(0, 0, 1000, 600);
+                context.clearRect(0, 0, 1000, 600);
                 a = 0;
             }
         })
