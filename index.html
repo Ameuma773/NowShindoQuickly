@@ -37,9 +37,9 @@
             //加速度
             window.addEventListener("devicemotion", function (e) {
                 var acc = e.acceleration;
-                var x = Number(acc.x)*0.01.toFixed(3);
-                var y = Number(acc.y)*0.01.toFixed(3);
-                var z = Number(acc.z)*0.01.toFixed(3);
+                var x = Number(acc.x)*100 .toFixed(3);
+                var y = Number(acc.y)*100 .toFixed(3);
+                var z = Number(acc.z)*100 .toFixed(3);
 
                 document.getElementById("x").innerText = "X : "+ x + "gal";
                 document.getElementById("y").innerText = "Y : "+ y + "gal";
