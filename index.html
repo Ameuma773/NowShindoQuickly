@@ -13,7 +13,7 @@
         function GetData() {
             //加速度
             window.addEventListener("devicemotion", function (e) {
-                var acc = e.acceleration;
+                var acc = e.accelerationIncludingGravity;
                 var x = Number(acc.x).toFixed(5);
                 var y = Number(acc.y).toFixed(5);
                 var z = Number(acc.z).toFixed(5);
