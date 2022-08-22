@@ -59,9 +59,9 @@
         //加速度
         window.addEventListener("devicemotion", function (e) {
             var acc = e.acceleration;
-            var x = Math.floor(Number(acc.x) * 100 * Math.pow(10, n));
-            var y = Math.floor(Number(acc.y) * 100 * Math.pow(10, n));
-            var z = Math.floor(Number(acc.z) * 100 * Math.pow(10, n));
+            var x = acc.x*100;
+            var y = acc.y*100
+            var z = acc.z*100;
 
             document.getElementById("x").innerText = "X : " + x + "gal";
             document.getElementById("y").innerText = "Y : " + y + "gal";
