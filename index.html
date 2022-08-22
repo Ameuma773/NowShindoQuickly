@@ -2,41 +2,15 @@
 <html>
 
 <head>
-    <title>NowShindoQuickly</title>
+    <title></title>
 </head>
-
-<style>
-    #xCanvas {
-        width: 1000px;
-        height: 300px;
-    }
-</style>
 
 <body>
     <h1 id="x"></h1>
     <h1 id="y"></h1>
     <h1 id="z"></h1>
-    <canvas id="xCanvas"></canvas>
-    <canvas id="yCanvas"></canvas>
-    <canvas id="zCanvas"></canvas>
     <button id="Kyoka" onclick="requesPermission()">加速度センサへの許可を求める</button>
     <script>
-        var canvasX = document.getElementById("xCanvas");
-        canvasX.width = 1000;
-        canvasX.height = 600;
-        var contextX = canvasX.getContext("2d");
-        
-        var canvasY = document.getElementById("yCanvas");
-        canvasY.width = 1000;
-        canvasY.height = 600;
-        var contextY = canvasY.getContext("2d");
-
-        var canvasZ = document.getElementById("zCanvas");
-        canvasZ.width = 1000;
-        canvasZ.height = 600;
-        var contextZ = canvasZ.getContext("2d");
-        var a = 0;
-
         function requesPermission() {
             if (window.DeviceOrientationEvent) {
                 if (DeviceOrientationEvent.requestPermission) {
@@ -50,11 +24,6 @@
                 }
             }
         }
-
-        var n = 2;	// 小数点第n位
-        var MaeX = 0;
-        var MaeY = 0;
-        var MaeZ = 0;
 
         //加速度
         window.addEventListener("devicemotion", function (e) {
