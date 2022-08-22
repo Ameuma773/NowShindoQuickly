@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title></title>
+    <title>NowShindoQuickly</title>
 </head>
 
 <style>
@@ -52,6 +52,9 @@
         }
 
         var n = 2;	// 小数点第n位
+        var MaeX = 0;
+        var MaeY = 0;
+        var MaeZ = 0;
 
         //加速度
         window.addEventListener("devicemotion", function (e) {
@@ -66,24 +69,27 @@
 
             x = x*50;
             contextX.beginPath();
-            contextX.moveTo(a - 1, 300 - x / 2);
+            contextX.moveTo(a - 1, 300 - MaeX / 2);
             contextX.lineTo(a, 300 - x / 2)
             contextX.lineWidth = 1;
             contextX.stroke();
+            MaeX = x;
             
             y = y*50;
             contextY.beginPath();
-            contextY.moveTo(a - 1, 300 - y / 2);
+            contextY.moveTo(a - 1, 300 - MaeY / 2);
             contextY.lineTo(a, 300 - y / 2)
             contextY.lineWidth = 1;
             contextY.stroke();
+            MaeY = y;
 
             z = z*50;
             contextZ.beginPath();
-            contextZ.moveTo(a - 1, 300 - z / 2);
+            contextZ.moveTo(a - 1, 300 - MaeZ / 2);
             contextZ.lineTo(a, 300 - z / 2)
             contextZ.lineWidth = 1;
             contextZ.stroke();
+            MaeZ = z;
 
             a++;
         })
