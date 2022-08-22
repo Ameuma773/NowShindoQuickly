@@ -5,12 +5,38 @@
     <title></title>
 </head>
 
+<style>
+    #xCanvas {
+        width: 1000px;
+        height: 300px;
+    }
+</style>
+
 <body>
     <h1 id="x"></h1>
+    <canvas id="xCanvas"></canvas>
     <h1 id="y"></h1>
+    <canvas id="yCanvas"></canvas>
     <h1 id="z"></h1>
+    <canvas id="zCanvas"></canvas>
     <button id="Kyoka" onclick="requesPermission()">加速度センサへの許可を求める</button>
     <script>
+        var canvasX = document.getElementById("xCanvas");
+        canvasX.width = 1000;
+        canvasX.height = 600;
+        var contextX = canvasX.getContext("2d");
+        
+        var canvasY = document.getElementById("yCanvas");
+        canvasY.width = 1000;
+        canvasY.height = 600;
+        var contextY = canvasY.getContext("2d");
+
+        var canvasZ = document.getElementById("zCanvas");
+        canvasZ.width = 1000;
+        canvasZ.height = 600;
+        var contextZ = canvasZ.getContext("2d");
+        var a = 0;
+
         function requesPermission() {
             if (window.DeviceOrientationEvent) {
                 if (DeviceOrientationEvent.requestPermission) {
@@ -25,6 +51,8 @@
             }
         }
 
+        var n = 2;	// 小数点第n位
+
         //加速度
         window.addEventListener("devicemotion", function (e) {
             var acc = e.acceleration;
@@ -35,6 +63,32 @@
             document.getElementById("x").innerText = "X : " + x + "m/s²";
             document.getElementById("y").innerText = "Y : " + y + "m/s²";
             document.getElementById("z").innerText = "Z : " + z + "m/s²";
+
+            contextX.beginPath();
+            contextX.moveTo(a - 1, 300 - x / 2);
+            contextX.lineTo(a, 300 - x / 2)
+            contextX.lineWidth = 1;
+            contextX.stroke();
+            
+            contextY.beginPath();
+            contextY.moveTo(a - 1, 300 - y / 2);
+            contextY.lineTo(a, 300 - y / 2)
+            contextY.lineWidth = 1;
+            contextY.stroke();
+
+            contextZ.beginPath();
+            contextZ.moveTo(a - 1, 300 - z / 2);
+            contextZ.lineTo(a, 300 - z / 2)
+            contextZ.lineWidth = 1;
+            contextZ.stroke();
+
+            a++;
+            if (a > 1000) {
+                contextX.clearRect(0, 0, 1000, 600);
+                contextY.clearRect(0, 0, 1000, 600);
+                contextZ.clearRect(0, 0, 1000, 600);
+                a = 0;
+            }
         })
     </script>
 </body>
