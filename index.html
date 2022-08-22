@@ -56,26 +56,29 @@
         //加速度
         window.addEventListener("devicemotion", function (e) {
             var acc = e.acceleration;
-            var x = acc.x *100;
-            var y = acc.y *100;
-            var z = acc.z *100;
+            var x = acc.x;
+            var y = acc.y;
+            var z = acc.z;
 
             document.getElementById("x").innerText = "X : " + x + "m/s²";
             document.getElementById("y").innerText = "Y : " + y + "m/s²";
             document.getElementById("z").innerText = "Z : " + z + "m/s²";
 
+            x = x*50;
             contextX.beginPath();
             contextX.moveTo(a - 1, 300 - x / 2);
             contextX.lineTo(a, 300 - x / 2)
             contextX.lineWidth = 1;
             contextX.stroke();
             
+            y = y*50;
             contextY.beginPath();
             contextY.moveTo(a - 1, 300 - y / 2);
             contextY.lineTo(a, 300 - y / 2)
             contextY.lineWidth = 1;
             contextY.stroke();
 
+            z = z*50;
             contextZ.beginPath();
             contextZ.moveTo(a - 1, 300 - z / 2);
             contextZ.lineTo(a, 300 - z / 2)
